@@ -21,25 +21,263 @@
   <body>
     <main>
       <!-- Navigation Bar -->
-      <nav class="blue" role="navigation">
+      <nav class="nav-extended blue" role="navigation">
         <div class="nav-wrapper container">
           <a id="logo-container" class="brand-logo">Coursework</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="index.html">Homepage</a></li>
+            <li><a href="research.html">Research</a></li>
             <li class="active"><a href="coursework.html">Coursework</a></li>
-            <li><a href="research.html">Research</a></li>
             <li><a href="publication.html">Publication</a></li>
           </ul>
+        </div>
 
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="index.html">Homepage</a></li>
-            <li><a href="coursework.html">Coursework</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="publication.html">Publication</a></li>
+        <div class="nav-content container">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#General">General</a></li>
+            <li class="tab"><a href="#Selected_Courses_and_Projects">Selected Courses and Projects</a></li>
+            <li class="tab"><a href="#Lists_of_Courses">Lists of Courses by Semester</a></li>
           </ul>
-          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="coursework.html">Coursework</a></li>
+        <li><a href="publication.html">Publication</a></li>
+      </ul>
+
+      <div id="General">
+        <div class="container">
+          <div class="section">
+            <h4>Major</h4>
+            <div class="divider"></div>
+            <ul class="browser-default">
+              <li>Electrical Engineering</li>
+              <li>Computer System Engineering</li>
+            </ul>
+            <h4>GPA</h4>
+            <div class="divider"></div>
+            <ul class="browser-default">
+              <li>Accumulative: 3.96/4.00</li>
+              <li>Lastest semester: 4.00/4.00</li>
+            </ul>
+            <h4>Concentration</h4>
+            <div class="divider"></div>
+            <ul class="browser-default">
+              <li>Computer Graphics in XR</li>
+              <li>GPU base level and high level optimization</li>
+              <li>Computer Vision (in assisting AR)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="Selected_Courses_and_Projects">
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="col s12 m12 l6">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">Computer Graphics (Fall 2017)</span>
+                    <p>ECSE-4750</p>
+                    <ul class="browser-default">
+                      <li>Graphics architectures, the graphics pipeline, clipping, rasterization, and programmable shaders.</li>
+                      <li>Geometric objects, homogeneous coordinates, and transformations. Viewing, hidden surface removal, frame and depth buffers, compositing, and anti-aliasing.</li>
+                      <li>Shading, light and materials, texture mapping, ray tracing, and radiosity.</li>
+                      <li>OpenGL, WebGL and GLSL</li>
+                      <li>Three.js</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a href="src/Audio_Mapped_Sphere/index.html">Audio Mapped Sphere (Project)</a>
+                    <a href="https://wrf.ecse.rpi.edu/Teaching/graphics-f2017/">Course Site</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m12 l6">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">RCOS (Fall 2017)</span>
+                    <p>Rensselaer Center for Open Source, CSCI-2941</p>
+                    <ul class="browser-default">
+                      <li>1<a class="superscript black-text">st</a> Milestone: a VR tour of part of RPI west campus (<a href="https://www.youtube.com/watch?v=OsOcbkqYh8s">Link</a>)</li>
+                      <li>2<a class="superscript black-text">nd</a> Milestone: a VR free trip in RPI west campus (under construction, need local server to run <a href="src/GoogleCardboardVR-AR/homepage/src/RPIVRFreeTrip/index.html">Link</a>)</li>
+                      <li>3<a class="superscript black-text">rd</a> Milestone: a 360 degrees VR map of RPI west campus (under construction, need local server to run <a href="src/GoogleCardboardVR-AR/homepage/src/RPIVRMap/index.html">Link</a>)</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a href="src/GoogleCardboardVR-AR/homepage/Main.html">Google Cardboard VR/AR (Project)</a>
+                    <a href="https://rcos.io/projects/ziniuyu/googlecardboardvr-ar/profile">Nested Project Site</a>
+                    <a href="https://rcos.io/">RCOS Site</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m12 l6">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">Emergency Detection System (Summer 2017)</span>
+                    <p>Team leader</p>
+                    <ul class="browser-default">
+                      <li>A system to detect emrgency of residents at home</li>
+                      <li>Utilize alarm, light and emergency contacts to solve with negligible latency</li>
+                      <li>Implemented Arduino, BLE modules</li>
+                      <li>iOS platform supported</li>
+                    </ul>
+                  </div>
+                  <div class="card-action">
+                    <a href="src/IED/SightRPI_MS2 Memo.pdf">Final Report</a>
+                    <a href="src/IED/Milestone 2 Presentation.pdf">Presentation</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m12 l6">
+              <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Embedded Control (Spring 2016)</span>
+                  <p>Teaching Assistant, Fall 2016-present</p>
+                  <ul class="browser-default">
+                    <li>Skilled in base level C programming language in embedded system</li>
+                    <li>A/D Conversion</li>
+                    <li>Teaching & Communication</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="Lists_of_Courses">
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title"><a class="bold-text grey-text text-darken-3">(Current)</a> 2018 Fall</span>
+                    <ul class="browser-default">
+                      <li>Computational Vison (CSCI 4270)</li>
+                      <li>Computer Hardware Design (ECSE 4770)</li>
+                      <li>Digital Signal Processing (ECSE 4530)</li>
+                      <li>Game Development I (CSCI 4520)</li>
+                      <li>Machine Learning From Data (CSCI 4100)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2018 Spring</span>
+                    <ul class="browser-default">
+                      <li>Communication Theory And Practice (COMM 1510)</li>
+                      <li>Introduction To Algorithms (CSCI 2300)</li>
+                      <li>Signals And Systems (ECSE 2410)</li>
+                      <li>Introduction To Logic (PHIL 2140)</li>
+                      <li>PD 2: Tech Issues & Solutions (STSS 4967)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2017 Fall</span>
+                    <ul class="browser-default">
+                      <li>Foundations Of Computer Science (CSCI 2200)</li>
+                      <li>RCOS-Google Cardboard VR/AR (CSCI 2941)</li>
+                      <li>Money & Banking (ECON 4130)</li>
+                      <li>Microelectronics Technology (ECSE 2210)</li>
+                      <li>Computer Graphics (ECSE 4750)</li>
+                      <li>Linear Algebra (MATH 4100)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2017 Summer</span>
+                    <ul class="browser-default">
+                      <li>Introduction to Engineering Design (ENGR 2050)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2017 Spring</span>
+                    <ul class="browser-default">
+                      <li>Data Structures (CSCI 1200)</li>
+                      <li>Intermediate Microeconomic Theory (ECON 2010)</li>
+                      <li>Fields and Waves I (ECSE 2100)</li>
+                      <li>Electrical Energy Systems (ECSE 2210)</li>
+                      <li>Computer Architecture, Network and Operating System (ECSE 2660)</li>
+                      <li>ECSE Enrichment Seminar (ECSE 2900)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2016 Fall</span>
+                    <ul class="browser-default">
+                      <li>Electric Circuits (ECSE 2010)</li>
+                      <li>Computer Components & Operations (ECSE 2610)</li>
+                      <li>Engineering Dynamics (ENGR 2090)</li>
+                      <li>Multivariable Calculus & Matrix Algebra (MATH 2010)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2016 Spring</span>
+                    <ul class="browser-default">
+                      <li>Chemistry I (CHEM 1100)</li>
+                      <li>Engineering Communications (ENGR 1400)</li>
+                      <li>Embedded Control (ENGR 2350)</li>
+                      <li>Introduction to Differential Equations (MATH 2400)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col s12 m4 l4">
+                <div class="card">
+                  <div class="card-content">
+                    <span class="card-title">2015 Fall</span>
+                    <ul class="browser-default">
+                      <li>Computer Science I (CSCI 1100)</li>
+                      <li>Introductory Economics (ECON 1200)</li>
+                      <li>Introduction to Engineering Analysis (ENGR 1100)</li>
+                      <li>Calculus II (MATH 1020)</li>
+                      <li>Physics I (PHYS 1100)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="page-footer blue darken-3">
@@ -47,16 +285,16 @@
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Contact</h5>
-            <div><img src="email_coursework.png" alt="" class="responsive-img"></div>
-            <div><img src="phone_coursework.png" alt="" class="responsive-img"></div>
+            <div><img src="src/email_coursework.png" alt="" class="responsive-img"></div>
+            <div><img src="src/phone_coursework.png" alt="" class="responsive-img"></div>
           </div>
           <div class="col l4 offset-l2 s12">
             <a class="white-text">Home</a>
             <div class="divider"></div>
             <ul>
               <li><a class="white-text" href="index.html">Homepage</a></li>
-              <li><a class="white-text" href="coursework.html">Coursework</a></li>
               <li><a class="white-text" href="research.html">Research</a></li>
+              <li><a class="white-text" href="coursework.html">Coursework</a></li>
               <li><a class="white-text" href="publication.html">Publication</a></li>
             </ul>
           </div>

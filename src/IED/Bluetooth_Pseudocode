@@ -1,0 +1,87 @@
+// Send data from Arduino UNO
+/* Data Type
+	For debug only: ("number of people: %d, range: %d", numberofpeople, range)
+	For normal transmission: ("%d", emergencyHappens) -- only send 101 when emergency happens, 
+														nothing during normal run
+							("%d", switchStatus) -- 103 if ON, 104 if OFF
+*/
+
+// Pseudocode
+#include <BluetoothSoftware>
+
+int a = 0;							// can use sbit (i.e. flag) instead
+
+// in main function
+while (in loop) {
+	...
+	if (lightOn) {
+		sendBluetooth(103);			// refresh switch ON/OFF on smartphone app
+	}
+	else {
+		sendBluetooth(104);
+	}
+	...
+	a = 0;
+	a = emergencyHappens(); 		// Range sensor, Homemade function
+	if (a == 1) {					// emergency happens
+		sendBluetooth(101);			// Homemade function
+	}
+	...
+}
+
+// in function sendBluetooth
+int/void sendBluetooth(int data) {	// int if need error checking -- see "Hints for Final Report" on Google Drive
+	sendData(data);
+	delayForBluetooth(t1);			// delay for Bluetooth
+}
+
+// Receive data at Arduino UNO end
+/* Data Type
+	For Trial_1: parseInt() may not meet requirement.
+	During free status:
+		Trial_0: ("201" -- free status) + delay + ("%d", R) + delay + ("%d", G) + delay + ("%d", B) + delay + ("%d", switchOnOrOff) + delay
+		Trial_1: ("201 %d %d %d %d", R, G, B, switchOnOrOff) + delay
+	During emergency status:
+		Trial_0: ("202" -- emergency status) + delay + ("100" -- SOS OR "101" -- cleared) + delay
+		Trial_1: ("202 100" OR "202 101") + delay
+*/
+
+// Pseudocode for Trial_0
+#include <BluetoothSoftware>
+
+int emergencyStatus = 0;			// can use sbit (i.e. flag) instead
+
+// in main function
+while (in loop) {
+	...
+	if (emergency happens) {
+		...
+		confirmation system call;
+		...
+		if (not OK) {
+			while (true) {
+				int tmp = 1;
+				tmp = readBluetooth();
+				delay();
+				if (tmp == 101) {
+					break;
+				}
+			}
+		}
+		...
+	}
+	...
+}
+
+// in function sendBluetooth
+// DO NOT give control of light to users -- except: 1) user clears, 2) object (i.e. fallen down person) is removed
+// If user says OK, ask another OK until the range gets back to normal and then into emergency case again. -- Idle mode in System flowchart
+int readBluetooth() {
+	int data = 0;
+	if (available())
+		readData();
+	delayForBluetooth(t1);			// delay for Bluetooth
+	return data;
+}
+
+// other functions may be required

@@ -9,20 +9,46 @@
 .icon-block {
   padding: 0 15px;
 }
+
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
 .parent-row{
   display:flex;
   flex-wrap:wrap;
 }
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 
-  main {
-    flex: 1 0 auto;
-  }
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 64px;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+ul.browser-default {
+  padding-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+ul.browser-default li {
+  list-style-type: initial;
+}
+
+.superscript { position: relative; top: -0.5em; font-size: 80%; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
   

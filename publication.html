@@ -21,25 +21,41 @@
   <body>
     <main>
       <!-- Navigation Bar -->
-      <nav class="red" role="navigation">
+      <nav class="nav-extended red" role="navigation">
         <div class="nav-wrapper container">
           <a id="logo-container" class="brand-logo">Publication</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="index.html">Homepage</a></li>
-            <li><a href="coursework.html">Coursework</a></li>
             <li><a href="research.html">Research</a></li>
+            <li><a href="coursework.html">Coursework</a></li>
             <li class="active"><a href="publication.html">Publication</a></li>
           </ul>
+        </div>
 
-          <ul id="nav-mobile" class="sidenav">
-            <li><a href="index.html">Homepage</a></li>
-            <li><a href="coursework.html">Coursework</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="publication.html">Publication</a></li>
+        <div class="nav-content container">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#2018">2018</a></li>
           </ul>
-          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
       </nav>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="coursework.html">Coursework</a></li>
+        <li><a href="publication.html">Publication</a></li>
+      </ul>
+
+      <div id="2018">
+        <div class="container">
+          <div class="section">
+            <h5>There is no content on this page.</h5>
+            <br></br>
+            <h5><a class="bold-text grey-text text-darken-3">Note</a> One paper named <a class="italic-text black-text">3D-Stitching</a> is scheduled in September, 2018.</h5>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="page-footer red darken-3">
@@ -47,16 +63,16 @@
         <div class="row">
           <div class="col l6 s12">
             <h5 class="white-text">Contact</h5>
-            <div><img src="email_publication.png" alt="" class="responsive-img"></div>
-            <div><img src="phone_publication.png" alt="" class="responsive-img"></div>
+            <div><img src="src/email_publication.png" alt="" class="responsive-img"></div>
+            <div><img src="src/phone_publication.png" alt="" class="responsive-img"></div>
           </div>
           <div class="col l4 offset-l2 s12">
             <a class="white-text">Home</a>
             <div class="divider"></div>
             <ul>
               <li><a class="white-text" href="index.html">Homepage</a></li>
-              <li><a class="white-text" href="coursework.html">Coursework</a></li>
               <li><a class="white-text" href="research.html">Research</a></li>
+              <li><a class="white-text" href="coursework.html">Coursework</a></li>
               <li><a class="white-text" href="publication.html">Publication</a></li>
             </ul>
           </div>

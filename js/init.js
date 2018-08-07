@@ -1,7 +1,6 @@
-(function($){
-  $(function(){
+$(document).ready(function(){
+$('.sidenav').sidenav();
+});
 
-    $('.sidenav').sidenav();
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
+var el = document.querySelector('.tabs');
+   var instance = M.Tabs.init(el,{});
