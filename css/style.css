@@ -35,6 +35,35 @@
   text-decoration: underline;
 }
 
+.card.extra-small{
+  position: relative;
+}
+
+.card.extra-small .card-image {
+  max-height: 60%;
+  overflow: hidden;
+}
+
+.card.extra-small .card-image + .card-content {
+  max-height: 40%;
+}
+
+.card.extra-small .card-content {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.card.extra-small .card-action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.card.extra-small {
+  height: 220px;
+}
+
 ul.browser-default {
   padding-left: 30px;
   margin-top: 10px;
