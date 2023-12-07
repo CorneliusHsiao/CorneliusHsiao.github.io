@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="src/misc/avatar.png">
+    <title>Hanyuan Xiao's Homepage</title>
+    <meta name="description" content="Homepage of Hanyuan Xiao">
+    <meta name="keywords" content="Hanyuan,Xiao,Cornelius,Hsiao,RPI,rpi,USC,ICT">
+    <meta name="author" content="Hanyuan Xiao">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- CSS  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/materialize-social.css" type="text/css" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <main>
+      <!-- Navigation Bar -->
+      <nav class="nav-extended light-green darken-1" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" class="brand-logo"><a class="flow-text">Food Generation From Ingredients and Cooking Method</a></a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <!-- <ul class="right hide-on-med-and-down">
+            <li class="active"><a href="index.html">Homepage</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="coursework.html">Coursework</a></li>
+            <li><a href="publication.html">Publication</a></li>
+          </ul> -->
+        </div>
+      </nav>
+
+      <div id="FoodMethodGAN">
+        <div class="container">
+            <div class="section">
+            <!-- <h4>Food Generation From Ingredients and Cooking Method</h4> -->
+            <!-- <div class="divider"></div> -->
+            <p align="center">
+                <img id="img-1" src="src/FoodMethodGAN/img_1.PNG" alt="Realistic generated food images" width="100%"/>
+                <br><em>Figure 1. Realistic generated food images</em>
+            </p>
+            <h5>Team</h5>
+            <ul class="browser-default">
+                <li>Hanyuan Xiao</li>
+                <li>Kaijie Cai</li>
+                <li>Heng Zhang</li>
+                <li>Buke Ao</li>
+            </ul>
+            <h5>Motivation</h5>
+            <p>
+                Food image generation as one of image generation tasks is useful in visualization for almost everyone. Given food ingredients and cooking methods (e.g. bake, grill), people may wonder name and image of the dish that can be cooked. For example, chefs may want to try so many new ingredients and cooking method to invent new menu. Parents may be worried about whether dinner will be attractive to their children and consider nutrients at the same time. Based on the same ingredients, can we make something new and interesting? Even students who have a deadline may want to spend the minimum time to cook their lunch or dinner with whatever in the fridge. Therefore, such an image generator can provide a high-level idea about what they can cook.
+            </p>
+            <p>
+                Besides sparks and interest that can be brought to the public in this project, outputs of our model can also be used to evaluate and quantify vital criteria of food with attention drawn by Computational food analysis (CFA) <a href="#ref-artoffood">[1]</a> such as meal preference forecasting, and computational meal preparation. Therefore, the model defines its importance and usage in real life and is crucial to human life. Existing approaches such as The Art of Food does not take cooking method as input. However, the importance has been overshadowed since the same ingredients can be made into different dishes. For instance, chicken and noodles can be made in ramen or fried noodles by boiling and stir-fry, respectively. Therefore, this project aims at developing a reliable method to generate food image that fits in any specific class.
+            </p>
+            <h5>Problem Statement</h5>
+            <div class="row">
+                <div class="col m1 l2"></div>
+                <div class="col s12 m10 l8">
+                <div class="card-panel teal light-green darken-1">
+                    <span class="white-text">For this project, we trained a deep learning network to learn and generate <a class="bold-text white-text">food images</a> with <a class="bold-text white-text">ingredients</a> and <a class="bold-text white-text">cooking methods</a> as input. Specifically, we leveraged <a class="bold-text white-text">Generative Adversarial Network (GAN)</a> for our task.
+                    </span>
+                </div>
+                </div>
+                <div class="col m1 l2"></div>
+            </div>
+            <h5>Related Works & Method</h5>
+            <p><a class="bold-text black-text">Related Works</a></p>
+            <p>
+                Objects in images have many attributes that represent their visual information. On the other hand, the attributes could be described by texts either. Hence, if the connection between images and texts is learned, then we are able to generate images with text as input. Furthermore, the problem could be solved by two steps.
+            </p>
+            <ul class="browser-default">
+                <li>The first is to learn the text feature representations that are related to the key visual details.</li>
+                <li>The second is to generate images from the text feature representations where the visual attributes are the same to word descriptions.</li>
+            </ul>
+            <p>
+                The connection between the image pixel and the text description is highly multimodal, there are many possible mapping relationships between them. This multimodal learning is hard but finding the shared representation across different modalities is essential, besides, the generalization to unseen data is also a basic problem.
+            </p>
+            <p>
+                One way to generate images from texts is implemented by encoding the texts into class labels, which may cause loss of information and inaccuracy because the class labels are not good representations of original texts and there can be a large number of classes due to diverse combination of texts that the model cannot handle. Instead of directly using class labels, <a href="#ref-texttoimg">[2]</a> proposed an end-to-end architecture to generate images from text encodings by RNN and GAN, but the associations between texts and images as well as loss functions are not well established. In this project, we use two stages – an association model and a generative model – to address this problem.
+            </p>
+            <p><a class="bold-text black-text">Method</a></p>
+            <p>
+                To address this problem, we use a recipe association model which is able to find the common representations (i.e. text embeddings) between images and text input, and then a GAN to generate images from the embeddings.
+            </p>
+            <p><a class="bold-text black-text">Cross-modal Association Model</a> <a href="#ref-texttoimg">[3]</a></p>
+            <p align="center">
+                <img id="img-2" src="src/FoodMethodGAN/img_2.jpg" alt="Association model from ingredient + method and images" width="80%"/>
+                <br><em>Figure 2. Association model from ingredient + method and images</em>
+            </p>
+            <p>
+                The loss function of association model is:
+            </p>
+            <p align="center">
+                <img id="eqn-1" src="src/FoodMethodGAN/eqn_1.svg" width="60%"/>
+            </p>
+            <p>
+                where <img id="eqn-2" src="src/FoodMethodGAN/eqn_2.svg" height="15"/> is positive pair between text embeddings and extracted image features. <img id="eqn-3" src="src/FoodMethodGAN/eqn_3.svg" height="15"/>, <img id="eqn-4" src="src/FoodMethodGAN/eqn_4.svg" height="15"/> are negative paris. <img id="eqn-5" src="src/FoodMethodGAN/eqn_5.svg" height="15"/> is the bias to train the model on pairs that are not correctly associated, which is set to 0.3 for cross-validation.
+            </p>
+            <p>
+                This network takes ingredients and cooking methods as input from one side, and uses images as input from another side as shown in <a href="#img-2">Figure 2</a>. The ingredients and cooking methods are encoded by LSTM and concatenated together to get the representative text embedding. The feature extraction from images is achieved by ResNet <a href="#ref-resnet">[4]</a> and then tuned based on our dataset and task. Finally, cosine similarity is used to compute similarity between image features and text embedding. Ideally, for positive pairs of image and corresponding text embedding, the similarity is as large as 1; for negative pairs, the similarity is smaller than a marginal value based on task and dataset.
+            </p>
+            <p><a class="bold-text black-text">Conditional StackGAN</a> <a href="#ref-recipe1m">[5]</a></p>
+            <p align="center">
+                <img id="img-3" src="src/FoodMethodGAN/img_3.jpg" alt="StackGAN for image generation" width="80%"/>
+                <br><em>Figure 3. StackGAN for image generation</em>
+            </p>
+            <p>
+                After we extracted meaningful and respresentative text embedding from ingredients and cooking methods by trained network in the association model. The text embedding for each training case is then used as the conditional code in StackGAN. In order to ascertain the food image has the expected ingredients and methods that it depends on, we added cycle-consistency constraint <a href="#ref-artoffood">[1]</a> to guarantee the similarity between generated fake images and text embedding strong.
+            </p>
+            <p>
+                The loss function in <a href="#ref-artoffood">[1]</a> for image generation used in conditional GAN is:
+            </p>
+            <p align="center">
+                <img id="eqn-6" src="src/FoodMethodGAN/eqn_6.svg" width="50%"/>
+            </p>
+            <p>
+                In the equation, we exploited both conditioned and unconditioned loss for discriminator. The loss of cycle-consistency constraint is  incorporated as the <img id="eqn-7" src="src/FoodMethodGAN/eqn_7.svg" height="15"/> term. The last part is the regularization factor, which aims at ensuring the distribution of conditions given extracted image features to approximate the standard Gaussian distribution as closed as possible. Loss weight hyperparameters are determined by cross-validation.
+            </p>
+            <h5>Experiment</h5>
+            <p><a class="bold-text black-text">Dataset</a></p>
+            <p>
+                We conduct our experiments using data from Recipe1M [[6]](#references). Recipe1M dataset consists of more than 1 million food images with corresponding ingredients and instructions. We manually extracted and chose 12 different types of cooking methods that are believed to be meaningful and distinguishable statistically, and then generated cooking methods for each training data by searching for keywords in the instruction text. We also reduced the number of different ingredients from around 18,000 to around 2,000 by removing ingredients with low frequency ( < 500 occurrence in the dataset) and then combined ingredients that belong to the same kind contextually (e.g. different kinds of oil which have the same features in images) or trivially (e.g. 1% milk and 2% milk). Because of the limit of time and computing resources we used only 10,000 data from the dataset to train.
+            </p>
+            <p><a class="bold-text black-text">Input</a></p>
+            <p>
+                We feed association model with paired and unpaired 128 &#215; 128 image and text input. For the StackGAN model, we feed text embedding as conditions and random noise to generator. For discriminator, we feed both 64 &#215; 64 and 128 &#215; 128 images from our dataset and from generator. The real images can be paired with their crossponding text or random text.
+            </p>
+            <h5>Evaluation</h5>
+            <p>
+                We evaluated our task and approach via qualitative and quantitative results. In qualitative part, we demonstrate that our results are valid and meaningful under different conditions. In quantitaive part, we show two tables to compare the performance of our model with prior work.
+            </p>
+            <p><a class="bold-text black-text">Qualitative</a></p>
+            <p>
+                Besides <a href="#img-1">Figure 1</a> where we show several realistic generated images from our model, here we compare the influence of two inputs -- ingredient and cooking method -- on image generation.
+            </p>
+            <p align="center">
+                <img id="img-4" src="src/FoodMethodGAN/img_4.PNG" alt="fixed ingredients, change cooking method (1)" width="35%"/>
+                <br><em>Figure 4. Fixed ingredients (pork chops, green pepper and butter) and change cooking method</em>
+            </p>
+            <p>
+                In <a href="#img-4">Figure 4</a>, ingredients are fixed as pork chops, green pepper and butter, but cooking method is changed from stir+fry to boil.
+            </p>
+            <p align="center">
+                <img id="img-5" src="src/FoodMethodGAN/img_5.PNG" alt="fixed ingredients, change cooking method (2)" width="35%"/>
+                <br><em>Figure 5. Fixed ingredients (cheese, egg and pizza sauce) and change cooking method</em>
+            </p>
+            <p>
+                In <a href="#img-5">Figure 5</a>, ingredients are fixed as cheese, egg and pizza sauce, but cooking method is changed from boil+heat to bake+stir.
+            </p>
+            <p align="center">
+                <img id="img-6" src="src/FoodMethodGAN/img_6.PNG" alt="fixed cooking method, change ingredients (1)" width="30%"/>
+                <br><em>Figure 6. Fixed cooking method and add blueberry</em>
+            </p>
+            <p>
+                In <a href="#img-6">Figure 6</a>, cooking method are fixed as bake as for muffin, but blueberry is added as extra ingredient. Blueberry is added to the top and inside muffin and we can see such dip in muffin with blueberries.
+            </p>
+            <p align="center">
+                <img id="img-7" src="src/FoodMethodGAN/img_7.PNG" alt="fixed cooking method, change ingredients (2)" width="30%"/>
+                <br><em>Figure 7. Fixed cooking method and add chocolate</em>
+            </p>
+            <p>
+                In <a href="#img-7">Figure 7</a>, cooking method are fixed as bake as for muffin, but chocolate is added as extra ingredient. Chocolate is mixed with flour to prepare base for muffin and we can see muffin with chocolate in a darker color which represents chocolate.
+            </p>
+            <p align="center" id="img-8">
+                <img src="src/FoodMethodGAN/img_13.png" width="15%"/>
+                <img src="src/FoodMethodGAN/img_18.png" width="15%"/>
+                <br><em>Figure 8. Generated images of pork with different noise</em>
+            </p>
+            <p>
+                In <a href="#img-8">Figure 8</a>, we show generated images of pork with different noise input.
+            </p>
+            <p align="center" id="img-9">
+                <img src="src/FoodMethodGAN/img_12.png" width="15%"/>
+                <img src="src/FoodMethodGAN/img_14.png" width="15%"/>
+                <img src="src/FoodMethodGAN/img_15.png" width="15%"/>
+                <img src="src/FoodMethodGAN/img_16.png" width="15%"/>
+                <img src="src/FoodMethodGAN/img_17.png" width="15%"/>
+                <br><em>Figure 9. Generated images of pork with different cooking methods</em>
+            </p>
+            <p>
+                In <a href="#img-12">Figure 12</a>, we show generated images of pork with different cooking methods.
+            </p>
+            <p><a class="bold-text black-text">Quantitative</a></p>
+            <p>
+                To evaluate the association model, we adopt median retrieval rank (MedR) and recall at top K (R@K) as in <a href="#ref-artoffood">[1]</a>. In a subset of recipe-image pairs randomly selected from test set, every recipe is viewed as a query to retrieve its corresponding image by ranking their cosine similarity in common space, namely recipe2im retrieval. MedR calculates the median rank position of correct image, while R@K measures the percentage of all queries when true image ranks top-K. Therefore, a lower MedR and a higher R@K implies better performance. To evaluate the stability of retrieval, we set subset size as 1K, 5K, and 10K respectively. We repeat experiments 10 times for each subset size and report the mean results. Im2recipe retrieval is evaluated likewise. In <a href="#table-1">Table 1</a>, we show the discussed quantities. Our model outperforms in all scores, which proves that canonical, clear ingredients and addition of cooking method as input are important to the task.
+            </p>
+            <p align="center">
+                <table class="striped">
+                <thead>
+                    <tr>
+                        <th colspan="2"></th>
+                        <th colspan="4" class="center">im2rcp</th>
+                        <th colspan="4" class="center">rcp2im</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>MedR&#8595;</th>
+                        <th>R@1&#8593;</th>
+                        <th>R@5&#8593;</th>
+                        <th>R@10&#8593;</th>
+                        <th>MedR&#8595;</th>
+                        <th>R@1&#8593;</th>
+                        <th>R@5&#8593;</th>
+                        <th>R@10&#8593;</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                    <td>1K</td>
+                    <td>Model in <a href="#ref-artoffood">[1]</a></td>
+                    <td>5.500</td>
+                    <td>0.234</td>
+                    <td>0.503</td>
+                    <td>0.618</td>
+                    <td>5.750</td>
+                    <td>0.230</td>
+                    <td>0.491</td>
+                    <td>0.615</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>Ours</td>
+                    <th>4.400</th>
+                    <th>0.261</th>
+                    <th>0.549</th>
+                    <th>0.679</th>
+                    <th>4.200</th>
+                    <th>0.270</th>
+                    <th>0.556</th>
+                    <th>0.682</th>
+                    </tr>
+                    <tr>
+                    <td>5K</td>
+                    <td>Model in <a href="#ref-artoffood">[1]</a></td>
+                    <td>24.000</td>
+                    <td>0.099</td>
+                    <td>0.265</td>
+                    <td>0.364</td>
+                    <td>25.100</td>
+                    <td>0.097</td>
+                    <td>0.259</td>
+                    <td>0.357</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>Ours</td>
+                    <th>17.900</th>
+                    <th>0.116</th>
+                    <th>0.299</th>
+                    <th>0.406</th>
+                    <th>16.700</th>
+                    <th>0.129</th>
+                    <th>0.315</th>
+                    <th>0.421</th>
+                    </tr>
+                    <tr>
+                    <td>10K</td>
+                    <td>Model in <a href="#ref-artoffood">[1]</a></td>
+                    <td>47.000</td>
+                    <td>0.065</td>
+                    <td>0.185</td>
+                    <td>0.267</td>
+                    <td>48.300</td>
+                    <td>0.061</td>
+                    <td>0.178</td>
+                    <td>0.261</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td>Ours</td>
+                    <th>34.900</th>
+                    <th>0.077</th>
+                    <th>0.212</th>
+                    <th>0.301</th>
+                    <th>32.700</th>
+                    <th>0.088</th>
+                    <th>0.229</th>
+                    <th>0.319</th>
+                    </tr>
+                </tbody>
+                </table>
+            </p>
+            <p align="center">
+                <br><em><a id="table-1" class="black-text">Table 1</a>. Quantitative Evaluation for Cross-modal Association Model</em></br>
+            </p>
+            <p>
+                We used inception score (IS) and Fréchet Inception Distance (FID) to evaluate results of GAN, where IS is computed for batch of images while FID is computed to compare difference between real image set and fake image set. The higher IS and lower FID are, the better quality and diversity are for our generated images. In <a href="#table-2">Table 2</a>, the comparison is based on same model structure, parameters, training and test cases and approximately the same IS for real image sets. The only difference is the input type. The image-input model has only noise as input for generator. The ingredient-input model has noise and ingredient text embedding as input for generator. The ingredient+method model has noise, ingredient text embedding and cooking method text embedding as input.
+            </p>
+            <p align="center">
+                <table class="striped">
+                <thead>
+                    <tr>
+                    <th></th>
+                    <th>Inception Score (IS)&#8593;</th>
+                    <th>Fréchet Inception Distance (FID)&#8595;</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                    <td>Image Input Model</td>
+                    <td>3.43041</td>
+                    <td>34.31625</td>
+                    </tr>
+                    <tr>
+                    <td>Ingredient Input Model</td>
+                    <td>3.51826</td>
+                    <td>32.65582</td>
+                    </tr>
+                    <tr>
+                    <td>Ingredient+Method Model</td>
+                    <th>3.53567</th>
+                    <th>25.90622</th>
+                    </tr>
+                </tbody>
+                </table>
+            </p>
+            <p align="center">
+                <br><em><a id="table-2" class="black-text">Table 2</a>. Quantitative Evaluation for GAN</em>
+            </p>
+            <p>
+                Based on <a href="#table-2">Table 2</a>, we successfully proved that cooking method, as an extra input, is a useful and valuable input for food image generation task.
+            </p>
+            <h5>Future Improvements</h5>
+            <p>
+                From the experiments, we find that there are some improvements can be made in the future. 
+            </p>
+            <ul class="browser-default">
+                <li>Reduce the number of ingredients further. For example, we may combine different kinds of cheeses as they have similar appearance and contribution to the generated images. Such change will reduce the redundancy in the dataset and make it easier to learn.</li>
+                <li>Balance the number of images with different color to prevent the model from the inclination to generate reddish and yellowish images or train with appropriate amount of epochs rather than more the better. See <a href="#img-10">Figure 10</a> for a batch of generated images with epochs. For example, the third image on the first row. Green color is almost lost near the end of training. This is because, after some point, the model is inclined to minimize the overall loss by outputing an image that fits most data (in our case, is yellow or red food images) in training dataset.</li>
+                <li>Extend training from 10,000 data to whole dataset. This is limited during development since time and computing resources are not allowed at this time.</li>
+                <li>Improve model architecture and parameters.</li>
+                <li>Investigate the way to better control the contribution of conditional inputs as we found that it sometimes generated irrelevant images. Attention mechanism and regularization loss can be the options.</li>
+            </ul>
+
+            <p align="center">
+                <img id="img-10" src="src/FoodMethodGAN/img_8.gif" alt="A batch of generated images" width="50%"/>
+                <br><em>Figure 10. A batch of generated images</em>
+            </p>
+            <p>
+                FYI, we upload the loss curve to compare different inputs. We welcome any insightful suggestions on improving the performance. See <a href="#img-11">Figure 11</a> for all loss curves in 150 epochs in our training. See <a href="#img-12">Figure 12</a> for loss curve of ingredient+method model for 520 epochs that we trained in total.
+            </p>
+            <p align="center">
+                <img id="img-11" src="src/FoodMethodGAN/img_9.PNG" alt="Loss curves of models with different inputs in 150 epochs" width="100%"/>
+                <br><em>Figure 11. Loss curves of models with different inputs</em>
+            </p>
+
+            <p align="center">
+                <img id="img-12" src="src/FoodMethodGAN/img_10.png" alt="Loss curve of model with ingredient+method as input in 520 epochs" width="50%"/>
+                <br><em>Figure 12. Loss curve of model with ingredient+method as input in 520 epochs</em>
+            </p>
+
+            <h5>Contributions</h5>
+            <p>
+                We acknowledge the assistance and advice from professor <a href="https://viterbi-web.usc.edu/~limjj/">Joseph Lim</a> and wonderful <a href="https://www.clvrai.com/people/">TAs</a> of course CS-566 (Deep Learning and its Applications). With their guidance, we developed the project and made the following contributions.
+            </p>
+            <ul class="browser-default">
+                <li>A conditional GAN model for food image generation task with ingredients and cooking methods as input</li>
+                <li>A refined version of dataset Recipe1M which further contains cooking methods extracted from instructions</li>
+                <li>Quantitative data that proves cooking method as a useful and valuable input to food image generation tasks</li>
+            </ul>
+
+            <h5>References</h5>
+            <ol class="browser-default">
+                <li><a id="ref-artoffood" class="black-text" href="https://arxiv.org/abs/1905.13149">Fangda Han, Ricardo Guerrero, & Vladimir Pavlovic. (2019). The Art of Food: Meal Image Synthesis from Ingredients.</a></li>
+
+                <li><a id="ref-texttoimg" class="black-text" href="https://arxiv.org/abs/1605.05396">Reed, Scott, et al. (2016). Generative adversarial text to image synthesis. arXiv preprint arXiv:1605.05396.</a></li>
+
+                <li><a id="ref-texttoimg" class="black-text" href="https://arxiv.org/abs/1605.05396"> Scott Reed, Zeynep Akata, Xinchen Yan, Lajanugen Logeswaran, Bernt Schiele, & Honglak Lee. (2016). Generative Adversarial Text to Image Synthesis.</a></li>
+
+                <li><a id="ref-resnet" class="black-text" href="https://arxiv.org/abs/1512.03385"> Kaiming He, Xiangyu Zhang, & Shaoqing Ren. (2015). Deep Residual Learning for Image Recognition. arXiv preprint arXiv:1512.03385.</a></li>
+
+                <li><a id="ref-stackgan" class="black-text" href="https://arxiv.org/abs/1612.03242"> Han Zhang, Tao Xu, Hongsheng Li, Shaoting Zhang, Xiaogang Wang, Xiaolei Huang, & Dimitris Metaxas. (2016). StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks.</a></li>
+
+                <li><a id="ref-recipe1m+" class="black-text" href="http://pic2recipe.csail.mit.edu/"> Marin, J., Biswas, A., Ofli, F., Hynes, N., Salvador, A., Aytar, Y., Weber, I., & Torralba, A. (2019). Recipe1M+: A Dataset for Learning Cross-Modal Embeddings for Cooking Recipes and Food Images IEEE Trans. Pattern Anal. Mach. Intell..</a></li>
+            </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="page-footer light-green darken-3">
+      <div class="container">
+        <div class="row">
+          <div class="col l12 s12">
+            <h5 class="white-text">Contact</h5>
+            <div><img src="src/misc/email_index.png" alt="" class="responsive-img"></div>
+            <!-- <div><img src="src/misc/phone_index.png" alt="" class="responsive-img"></div> -->
+          </div>
+          <!-- <div class="col l4 offset-l2 s12">
+            <a class="white-text">Home</a>
+            <div class="divider"></div>
+            <ul>
+              <li><a class="white-text" href="index.html">Homepage</a></li>
+              <li><a class="white-text" href="research.html">Research</a></li>
+              <li><a class="white-text" href="coursework.html">Coursework</a></li>
+              <li><a class="white-text" href="publication.html">Publication</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Last update: Dec.6, 2023
+        </div>
+      </div>
+    </footer>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+  </body>
+</html>

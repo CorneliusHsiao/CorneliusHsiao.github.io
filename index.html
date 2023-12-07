@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="src/misc/avatar.jpg">
+    <link rel="icon" href="src/misc/avatar.png">
     <title>Hanyuan Xiao's Homepage</title>
     <meta name="description" content="Homepage of Hanyuan Xiao">
     <meta name="keywords" content="Hanyuan,Xiao,Cornelius,Hsiao,RPI,rpi,USC,ICT">
@@ -28,30 +28,31 @@
         <div class="nav-wrapper container">
           <a id="logo-container" class="brand-logo"><a class="flow-text">Hanyuan Xiao 肖汉源</a></a>
           <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
+          <!-- <ul class="right hide-on-med-and-down">
             <li class="active"><a href="index.html">Homepage</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="coursework.html">Coursework</a></li>
             <li><a href="publication.html">Publication</a></li>
-          </ul>
+          </ul> -->
         </div>
       </nav>
 
-      <ul id="nav-mobile" class="sidenav">
+      <!-- <ul id="nav-mobile" class="sidenav">
         <li><a href="index.html">Homepage</a></li>
         <li><a href="research.html">Research</a></li>
         <li><a href="coursework.html">Coursework</a></li>
         <li><a href="publication.html">Publication</a></li>
-      </ul>
+      </ul> -->
 
+      <!-- Contents -->
       <div class="section no-pad-bot" id="index-banner">
         <br></br>
         <div class="container">
           <div class="row center">
             <div class="col s12 m12 l1"></div>
-            <div class="col s12 m12 l4"><img src="src/misc/avatar.jpg" alt="" class="circle responsive-img"></div>
-            <p class="col s12 m12 l6 left-align">
-                Greetings! I am Hanyuan Xiao, a second year PhD student in <a href="https://vgl.ict.usc.edu/">VGL</a> lab at <a href="http://ict.usc.edu/">Institute for Creative Technologies (ICT)</a>, an affiliated institution of <a href="https://www.usc.edu/">University of Southern California</a>. My current research lies in interdisciplinary area of Computer Vision and Computer Graphics. I am interested in Augmented Reality (AR) in particular. Please feel free to contact me if you are interested in collaboration!
+            <div class="col s12 m12 l2"><img src="src/misc/avatar.png" alt="" class="circle responsive-img"></div>
+            <p class="col s12 m12 l8 left-align">
+              Greetings! I am Hanyuan Xiao, a PhD student in <a href="https://vgl.ict.usc.edu/">VGL</a> lab at <a href="http://ict.usc.edu/">Institute for Creative Technologies (ICT)</a>, an affiliated institution of <a href="https://www.usc.edu/">University of Southern California</a>. My current supervisor is Professor <a href="https://ict.usc.edu/about-us/leadership/research-leadership/yajie-zhao/">Yajie Zhao</a>. My research area is in 3D generative model and editing and neural rendering. Besides, I had research and engineering experience in human body performance capture, inverse rendering and 3D reconstruction.
               <div class="row">
                 <div class="col s12 m12 l1"></div>
                 <div class="col s12 m4 l2">
@@ -68,19 +69,112 @@
                 <div class="col s12 m12 l1"></div>
               </div>
             </p>
-            <!-- <div class="divider"></div>
-            <div class="row">
-              <div class="col s12 m3 l3">
-                <h5>News</h5>
+            <div class="divider"></div>
+
+            <!-- Publication & Patent -->
+            <div class="row left-align"><h4>Publication & Patent</h4>
+
+              <!-- ICLR 23 -->
+              <div class="row">
+                <div class="col s12 m3 l2"><img src="src/iclr23/representative.png" alt="" class="rectangle responsive-img"></div>
+                <div class="col s12 m8 l9 left-align">
+                  <h5>
+                    <a class="black-text">Light Sampling Field and BRDF Representation for Physically-based Neural Rendering</a>
+                  </h5>
+                  <a class="black-text" href="https://iclr.cc/virtual/2023/poster/11973">ICLR 2023 Poster</a>
+                  <br>
+                  <a href="https://jingyangcarl.github.io/LightSamplingField/">Project Page</a> | <a href="https://openreview.net/pdf?id=yYEb8v65X8">Paper</a> | <a href="https://github.com/jingyangcarl/LightSamplingField">GitHub</a>
+                  <br>
+                  <br>
+                  A novel lighting representation that enables high-performance and lightweight physically-based neural shader
+                </div>
+                <div class="col s12 m1 l1"></div>
               </div>
-              <div class="col s12 m9 l9"></div>
-              <div class="col s12 m9 l9">
-                <br>
-                <ul-align class="browser-default left-align">
-                  <li><a href="https://www.wamc.org/post/rpi-kicks-first-full-semester-virtual-reality-lab">Grand Opening of <i>The Rensselear Augmented and Virtual Environment lab (RAVE)</i></a></li>
-                </ul-align>
+
+              <!-- Patent: Neural Face Shader -->
+              <div class="row">
+                <div class="col s12 m3 l2"><img src="src/patent-pbr/representative.png" alt="" class="rectangle responsive-img"></div>
+                <div class="col s12 m8 l9 left-align">
+                  <h5>
+                    <a class="black-text">Systems and methods for physically-based neural face shader via volumetric lightmaps</a>
+                  </h5>
+                  <a href="https://patents.google.com/patent/US20230027890A1/en">US Patent US20230027890A1</a>
+                  <br>
+                </div>
+                <div class="col s12 m1 l1"></div>
               </div>
-            </div> -->
+
+              <!-- Patent: Human body neural performance capture -->
+              <div class="row">
+                <div class="col s12 m3 l2"><img src="src/patent-body-capture/representative.png" alt="" class="rectangle responsive-img"></div>
+                <div class="col s12 m8 l9 left-align">
+                  <h5>
+                    <a class="black-text">Multiview neural human prediction using implicit differentiable renderer for facial expression, body pose shape and clothes performance capture lightmaps</a>
+                  </h5>
+                  <a href="https://patents.google.com/patent/US20220319055A1/en">US Patent US20220319055A1</a>
+                  <br>
+                </div>
+                <div class="col s12 m1 l1"></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Related Projects -->
+            <div class="row left-align"><h4>Related Projects</h4>
+              <!-- food method GAN -->
+              <div class="row">
+                <div class="col s12 m3 l2"><img src="src/FoodMethodGAN/representative.png" alt="" class="rectangle responsive-img"></div>
+                <div class="col s12 m8 l9 left-align">
+                  <h5>
+                    <a class="black-text">Food Generation From Ingredients and Cooking Method</a>
+                  </h5>
+                  <a class="black-text">2019 Fall</a>
+                  <br>
+                  <a class="black-text">Hanyuan Xiao, Kaijie Cai, Heng Zhang, Buke Ao</a>
+                  <br>
+                  <a href="food-method-gan.html">Project Page</a>
+                </div>
+                <div class="col s12 m1 l1"></div>
+              </div>
+
+              <!-- RPI VR undergrad -->
+              <!-- <div class="row">
+                <div class="col s12 m3 l2"><img src="src/VR_SOE/representative.jpg" alt="" class="rectangle responsive-img"></div>
+                <div class="col s12 m8 l9 left-align">
+                  <h5>
+                    <a class="black-text">VR Acquisition & Application for School of Engineering at RPI</a>
+                  </h5>
+                  <a class="black-text">2019 Fall</a>
+                  <br>
+                  <a class="black-text">Hanyuan Xiao, Kaijie Cai, Heng Zhang, Buke Ao</a>
+                  <br>
+                  <a href="food-method-gan.html">Project Page</a>
+                </div>
+                <div class="col s12 m1 l1"></div>
+              </div> -->
+
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Work Experience -->
+            <div class="row left-align"><h4>Work Experience</h4>
+              <!-- intern, Sony, 2021 Summer -->
+              <div class="row">
+                <div class="col s12 m3 l2"><img src="src/misc/sony-logo.png" alt="" class="rectangle responsive-img"></div>
+                <div class="col s12 m8 l9 left-align">
+                  <h5>
+                    <a class="black-text">Research intern at Sony</a>
+                  </h5>
+                  <a class="black-text">2021 May-Dec</a>
+                  <br>
+                  <a class="black-text">Mentor: Qing Zhang</a>
+                </div>
+                <div class="col s12 m1 l1"></div>
+              </div>
+            </div>
+
             <div class="col s12 m6 l1"></div>
           </div>
         </div>
@@ -90,12 +184,12 @@
     <footer class="page-footer light-green darken-3">
       <div class="container">
         <div class="row">
-          <div class="col l6 s12">
+          <div class="col l12 s12">
             <h5 class="white-text">Contact</h5>
             <div><img src="src/misc/email_index.png" alt="" class="responsive-img"></div>
-            <div><img src="src/misc/phone_index.png" alt="" class="responsive-img"></div>
+            <!-- <div><img src="src/misc/phone_index.png" alt="" class="responsive-img"></div> -->
           </div>
-          <div class="col l4 offset-l2 s12">
+          <!-- <div class="col l4 offset-l2 s12">
             <a class="white-text">Home</a>
             <div class="divider"></div>
             <ul>
@@ -104,12 +198,12 @@
               <li><a class="white-text" href="coursework.html">Coursework</a></li>
               <li><a class="white-text" href="publication.html">Publication</a></li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="footer-copyright">
         <div class="container">
-        Contents © 2020 Hanyuan Xiao
+        Last update: Dec.6, 2023
         </div>
       </div>
     </footer>
