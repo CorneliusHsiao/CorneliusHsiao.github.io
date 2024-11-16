@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSLE</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="./css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/index.js"></script>
+</head>
+
+<style>
+  div.title-2 {
+    font-size:32px;
+    font-weight: normal;
+  }
+  div.hero-body{
+    padding-bottom: 0;
+  }
+</style>
+
+
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Localized Gaussian Splatting Editing with Contextual Awareness</h1>
+          <div class="title-2">WACV 2025</div>
+          
+          <div class="is-size-5 publication-authors">
+            
+              <a href="https://corneliushsiao.github.io" target="_blank">Hanyuan Xiao<sup>1,2</sup></a>, 
+            
+              <a href="https://www.chenyingshu.com" target="_blank">Yingshu Chen<sup>3</sup></a>, 
+            
+              <a href="https://huajianup.github.io" target="_blank">Huajian Huang<sup>3</sup></a>, 
+            
+              <a href="https://www.linkedin.com/in/haolin-xiong-927221176" target="_blank">Haolin Xiong<sup>4</sup></a>, <br>
+            
+              <a href="https://jingyangcarl.com" target="_blank">Jing Yang<sup>1,2</sup></a>,
+
+              <a href="https://scholar.google.com/citations?user=qHAj2tYAAAAJ&hl=en" target="_blank">Pratusha Prasad<sup>1,2</sup></a>,
+
+              <a href="https://www.yajie-zhao.com" target="_blank">Yajie Zhao<sup>1,2</sup></a>.
+            
+          </div>
+          
+
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <sup>1</sup>University of Southern California, <sup>2</sup>Institute for Creative Technologies,<br><sup>3</sup>HKUST, <sup>4</sup>University of California, Los Angeles
+            </span>
+          </div>
+          
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2408.00083"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <!-- Video Link. -->
+              
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-file-image"></i>
+                  </span>
+                  <span>Dataset (Coming Soon)</span>
+                  </a>
+              </span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+<div class="container is-max-desktop">
+
+<div class="content">
+  <div class="columns is-centered has-text-centered">
+    <video width="100%" height="100%" playsinline="" controls="" loop="" autoplay="" muted="">
+      <source src="./src/GSLE/buddha.mp4" type="video/mp4" />
+    </video>
+</div>
+
+<!-- Abstract -->
+<div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+        <h2>Abstract</h2>
+        <div class="content has-text-justified">
+          Recent text-guided generation of individual 3D objects has achieved great success using diffusion priors. However, when directly applied to scene editing tasks (e.g., object replacement, object insertion), these methods lack the context of global information, leading to inconsistencies in illumination or unrealistic occlusion.
+          To bridge the gap, we introduce an illumination-aware 3D scene editing pipeline for 3D Gaussian Splatting (3DGS) representation. 
+          Our key observation is that inpainting by the state-of-the-art conditional 2D diffusion model excels at filling missing regions while considering the context. In this paper, we introduce the success of 2D diffusion inpainting to 3D scene object replacement. Specifically, our approach automatically picks the representative views that best express the global illumination, and these views are inpainted using the state-of-the-art 2D diffusion model. We further developed a coarse-to-fine optimization pipeline that takes the inpainted representative views as input and converts them into 3D Gaussian splatting to achieve scene editing. To acquire an ideal inpainted image, 
+          we introduce an Anchor View Proposal (AVP) algorithm to find a single view that best represents the scene illumination in target region. In the coarse-to-fine 3D lifting component, we first achieve image-to-3D lifting given an ideal inpainted view. 
+          In the fine step of Texture Enhancement, we introduce a novel Depth-guided Inpainting Score Distillation Sampling (DI-SDS), which enhances geometry and texture details with the inpainting diffusion prior, beyond the scope of the 3D-aware diffusion prior knowledge in the first coarse step. 
+          DI-SDS not only provides fine-grained texture enhancement, but also urges optimization to respect scene lighting. 
+          Our approach efficiently achieves local editing with global illumination consistency and we demonstrate robustness of our method by evaluating editing in real scenes containing explicit highlight and shadows, and compare against the state-of-the-art text-to-3D editing methods.  
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<!-- Result -->
+<div class="columns is-centered has-text-centered">
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-chinaVase.avi" type="video/avi" />
+  </video>
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-woodenSculpture.avi" type="video/avi" />
+  </video>
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-teddyBear.avi" type="video/avi" />
+  </video>
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-monkeyStatue.avi" type="video/avi" />
+  </video>
+  
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/bird_house.mp4" type="video/mp4" />
+  </video>
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/knight_statue.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <!-- <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-stonePot.avi" type="video/avi" />
+  </video> -->
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-penguin.avi" type="video/avi" />
+  </video>
+  <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+    <source src="./src/GSLE/render-turtle.avi" type="video/avi" />
+  </video>
+</div>
+
+<hr />
+
+<!-- Pipeline -->
+<h2 id="pipeline">Method Overview</h2>
+<div style="text-align: center;">
+  <figure>
+      <img src="./src/GSLE/pipeline.png" alt="Pipeline"/>
+  </figure>
+  <t>
+    We propose a pipeline for localized scene editing, the new objects match the global illumination in the
+    original scene. Our method uses text prompts to guide localization and generation, enabling us to synthesize and insert an object that is
+    aware of the surrounding lighting. We introduce Anchor View Proposal to find a representative view of the illumination, which enables
+    a two-step 3D lifting pipeline. Specifically, we propose illumination-aware Texture Enhancement with Depth-guided Inpainting Score
+    Distillation Sampling (DI-SDS), which leverages contextual inpainting capability of large diffusion model. This enhancement step not
+    only improves delicate texture details and motifs but also preserves global lighting conditions during optimization.
+  </t>
+</div>
+
+<!-- <h2 id="more-pictures">More Pictures</h2>
+<div style="text-align: center;">
+    <figure>
+        <img src="./static/image/base3dgs_1.png" alt="Ground Truth" width="250" />
+        <img src="./static/image/mipnerf_1.png" alt="mipnerf" width="250" />
+        <img src="./static/image/ours_1.png" alt="ours" width="250" />
+        <img src="./static/image/base3dgs_2.png" alt="Ground Truth" width="250" />
+        <img src="./static/image/mipnerf_2.png" alt="mipnerf" width="250" />
+        <img src="./static/image/ours_2.png" alt="ours" width="250" />
+        <img src="./static/image/base3dgs_3.png" alt="Ground Truth" width="250" />
+        <img src="./static/image/mipnerf_3.png" alt="mipnerf" width="250" />
+        <img src="./static/image/ours_3.png" alt="ours" width="250" />
+        <img src="./static/image/base3dgs_4.png" alt="Ground Truth" width="250" />
+        <img src="./static/image/mipnerf_4.png" alt="mipnerf" width="250" />
+        <img src="./static/image/ours_4.png" alt="ours" width="250" />
+        <figcaption>From left to right: Base 3DGS, MipNeRF360, <b>SparseGS (Ours)</b></figcaption>
+    </figure>
+</div>
+
+<h2 id="more-videos-updating">More Videos (Updating)</h2>
+<div class="columns is-centered has-text-centered">
+    <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+      <source src="./static/image/vid_bonsai.mp4" type="video/mp4" />
+    </video>
+</div>
+<div class="columns is-centered has-text-centered">
+    <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+      <source src="./static/image/vid_garden.mp4" type="video/mp4" />
+    </video>
+</div>
+<div class="columns is-centered has-text-centered">
+    <video width="50%" height="50%" playsinline="" controls="" loop="" autoplay="" muted="">
+      <source src="./static/image/vid_kitchen.mp4" type="video/mp4" />
+    </video>
+</div> -->
+
+<h2 id="citation">Citation</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@misc{xiao2024localizedgaussiansplattingediting,
+  title={Localized Gaussian Splatting Editing with Contextual Awareness}, 
+  author={Hanyuan Xiao and Yingshu Chen and Huajian Huang and Haolin Xiong and Jing Yang and Pratusha Prasad and Yajie Zhao},
+  year={2024},
+  eprint={2508.00083},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2508.00083}, 
+}
+</code></pre></div></div>
+
+</div>
+
+</div>
+</section>
+
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template borrowed from <a
+            href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+</html>
